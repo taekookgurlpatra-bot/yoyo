@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Heart Catch Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Catch 15 Hearts To Win 💖</h2>
+<h3 id="score">Score: 0</h3>
+
+<div id="game-area"></div>
+
+<script>
+let score = 0;
+let gameArea = document.getElementById("game-area");
+
+function createHeart() {
+let heart = document.createElement("div");
+heart.classList.add("heart");
+heart.style.left = Math.random() * window.innerWidth + "px";
+
+heart.onclick = () => {
+score++;
+document.getElementById("score").innerText = "Score: " + score;
+heart.remove();
+
+if(score >= 15){
+window.location.href="wish.html";
+}
+};
+
+gameArea.appendChild(heart);
+
+setTimeout(() => heart.remove(), 3000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>

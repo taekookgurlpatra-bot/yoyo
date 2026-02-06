@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Thank You</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="calligraphy">
+Thank You For Being Mine 💕
+</div>
+
+<img src="gifs/gif1.gif" class="thank-gif">
+
+<div class="floating-hearts"></div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rose Day Wish</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="center-box">
+
+<h1>happy rose day my lovee 🌹🌹</h1>
+
+<img src="images/cat-rose.jpeg" class="rose-img">
+
+<button onclick="location.href='thankyou.html'">
+Next
+</button>
+
+</div>
+
+<div class="floating-hearts"></div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Messages for Ashraf</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Special Messages For You 💕</h1>
+
+<div class="flip-container">
+
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">Click Me</div>
+<div class="flip-back">u r my kuchupuchu 💖</div>
+</div>
+</div>
+
+<img src="gifs/gif1.gif" class="side-gif">
+
+
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">Click Me</div>
+<div class="flip-back">you are my jigar ka tukdaa 💕</div>
+</div>
+</div>
+
+<img src="gifs/gif2.gif" class="side-gif">
+
+
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">Click Me</div>
+<div class="flip-back">
+potato ko bolte h aloo <br>
+cutie kya me tumko pata lu? 🥀🥀
+</div>
+</div>
+</div>
+
+<img src="gifs/gif3.gif" class="side-gif">
+
+</div>
+
+<button onclick="location.href='letter.html'">Next 💌</button>
+
+<div class="floating-hearts"></div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Love Letter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="letter-box">
+
+<h1>For My Ashraf ❤️</h1>
+
+<p>
+My love,
+<br><br>
+You make my world brighter everyday.  
+Your smile, your care, your presence means everything to me.  
+I am so grateful to have you in my life.  
+You are my comfort, my happiness, and my forever person.
+<br><br>
+I love you endlessly 💕
+</p>
+
+<button onclick="location.href='game.html'">
+Next 🎮
+</button>
+
+</div>
+
+<div class="floating-hearts"></div>
+<script src="script.js"></script>
+</body>
+</html>
