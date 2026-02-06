@@ -64,3 +64,18 @@ setInterval(createHeart, 1000);
 
 </script>
 
+    .heart {
+    position: fixed;
+    font-size: 50px;
+    pointer-events: none;
+}
+
+#catcher {
+    position: fixed;
+    bottom: 40px;
+    font-size: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
