@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Catch My Hearts ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catch My Hearts 💗</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1 class="center">Catch 15 Hearts ❤️</h1>
+<h1 class="center">Catch 15 Hearts 💗</h1>
 <h2 id="score" class="center">Hearts Caught: 0</h2>
 
 <div id="gameArea"></div>
@@ -22,20 +23,18 @@ const catcher = document.getElementById("catcher");
 const scoreText = document.getElementById("score");
 const gameArea = document.getElementById("gameArea");
 
-// Mouse
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove", e => {
 catcher.style.left = (e.clientX - 60) + "px";
 });
 
-// Mobile touch
-document.addEventListener("touchmove", (e) => {
+document.addEventListener("touchmove", e => {
 catcher.style.left = (e.touches[0].clientX - 60) + "px";
 });
 
 function createHeart(){
 
 let heart = document.createElement("div");
-heart.innerHTML="❤️";
+heart.innerHTML="💗";
 heart.className="heart";
 
 heart.style.left=Math.random()*window.innerWidth+"px";
@@ -43,9 +42,10 @@ heart.style.top="-60px";
 
 gameArea.appendChild(heart);
 
+/* FASTER FALL SPEED */
 let fall=setInterval(()=>{
 
-heart.style.top=heart.offsetTop+2+"px";
+heart.style.top=heart.offsetTop+6+"px";
 
 let h=heart.getBoundingClientRect();
 let c=catcher.getBoundingClientRect();
@@ -69,12 +69,15 @@ heart.remove();
 clearInterval(fall);
 }
 
-},20);
+},15);
 }
 
-setInterval(createHeart,1000);
+/* Faster spawn */
+setInterval(createHeart,600);
 
 </script>
 
 </body>
 </html>
+
+
