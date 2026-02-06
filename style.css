@@ -1,5 +1,3 @@
-/* ===== GENERAL ===== */
-
 body{
 background: linear-gradient(to right,#ff9a9e,#fad0c4);
 font-family: cursive;
@@ -7,56 +5,46 @@ margin:0;
 padding:20px;
 }
 
-/* Makes text scale automatically */
-h1{
-font-size: clamp(28px,5vw,60px);
-}
-
-h2{
-font-size: clamp(20px,4vw,40px);
-}
-
-p{
-font-size: clamp(16px,3vw,24px);
-}
-
 .center{
 text-align:center;
 padding-top:50px;
 }
 
-/* ===== BUTTONS ===== */
+h1{
+font-size: clamp(38px,7vw,70px);
+}
+
+h2{
+font-size: clamp(26px,5vw,50px);
+}
+
+p{
+font-size: clamp(20px,4.5vw,30px);
+}
 
 button{
-padding:15px 35px;
-font-size: clamp(16px,2.5vw,22px);
+padding:18px 40px;
+font-size: clamp(18px,3vw,26px);
 border:none;
 border-radius:30px;
 background:#ff4d6d;
 color:white;
 cursor:pointer;
 margin-top:20px;
-transition:0.3s;
 }
 
-button:hover{
-background:#ff1f4b;
-transform:scale(1.05);
-}
-
-/* ===== FLIPCARD SECTION ===== */
+/* STACKED FLIPCARD */
 
 .card-container{
 display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-padding:20px;
+flex-direction:column;
+align-items:center;
+gap:35px;
 }
 
 .card{
-width:min(90vw,320px);
-height:200px;
+width:min(92vw,360px);
+height:230px;
 perspective:1000px;
 }
 
@@ -71,7 +59,7 @@ transform-style: preserve-3d;
 transform: rotateY(180deg);
 }
 
-.card-front, .card-back{
+.card-front,.card-back{
 position:absolute;
 width:100%;
 height:100%;
@@ -80,11 +68,10 @@ border-radius:20px;
 display:flex;
 align-items:center;
 justify-content:center;
-flex-direction:row;
 gap:15px;
 padding:15px;
 background:white;
-font-size:clamp(16px,2.5vw,22px);
+font-size: clamp(20px,4vw,28px);
 text-align:center;
 }
 
@@ -93,63 +80,48 @@ transform: rotateY(180deg);
 background:#ffd6e0;
 }
 
-/* GIF inside card */
 .sidegif{
-width:clamp(60px,15vw,90px);
-height:auto;
+width:clamp(80px,20vw,120px);
 }
 
-/* ===== LETTER PAGE ===== */
+/* LETTER */
 
 .letter{
-width:min(90vw,600px);
+width:min(92vw,650px);
 margin:auto;
-font-size: clamp(16px,3vw,24px);
+font-size: clamp(20px,4.5vw,30px);
 background:white;
 padding:20px;
 border-radius:20px;
-line-height:1.6;
 }
 
-/* ===== GAME ===== */
+/* GAME */
 
 #catcher{
 position:fixed;
 bottom:40px;
-font-size:clamp(60px,15vw,100px);
+font-size: clamp(80px,18vw,130px);
 left:50%;
 transform:translateX(-50%);
 }
 
 .heart{
 position:fixed;
-font-size:clamp(40px,10vw,70px);
+font-size: clamp(60px,14vw,90px);
 }
 
-/* ===== WISH PAGE IMAGE ===== */
+/* IMAGE */
 
 .roseimg{
-width:clamp(180px,50vw,300px);
+width:clamp(200px,55vw,320px);
 margin-top:20px;
 }
 
-/* ===== THANK YOU PAGE ===== */
+/* THANK YOU */
 
 .calligraphy{
 font-family:"Brush Script MT",cursive;
-font-size: clamp(30px,6vw,70px);
+font-size: clamp(40px,7vw,80px);
 }
 
-/* ===== MOBILE EXTRA FIXES ===== */
 
-@media(max-width:600px){
-
-.card{
-height:220px;
-}
-
-button{
-width:80%;
-}
-
-}
