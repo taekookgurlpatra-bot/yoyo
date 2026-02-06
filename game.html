@@ -11,6 +11,11 @@ document.addEventListener("mousemove", (e) => {
     catcher.style.left = (x - 50) + "px";
 });
 
+    document.addEventListener("touchmove", (e) => {
+    let x = e.touches[0].clientX;
+    catcher.style.left = (x - 50) + "px";
+});
+
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -57,3 +62,4 @@ function createHeart() {
 // Create hearts continuously
 setInterval(createHeart, 800);
 </script>
+
