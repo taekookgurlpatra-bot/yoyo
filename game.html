@@ -1,70 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Catch My Hearts ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 class="center">Catch 15 Hearts ❤️</h1>
+<h2 id="score" class="center">Hearts Caught: 0</h2>
+
+<div id="gameArea"></div>
+<div id="catcher">🧸</div>
+
 <script>
 
 let score = 0;
 const targetScore = 15;
 
-const gameArea = document.getElementById("gameArea");
 const catcher = document.getElementById("catcher");
 const scoreText = document.getElementById("score");
+const gameArea = document.getElementById("gameArea");
 
-// Move catcher with mouse
+// Mouse
 document.addEventListener("mousemove", (e) => {
-    catcher.style.left = (e.clientX - 60) + "px";
+catcher.style.left = (e.clientX - 60) + "px";
 });
 
-// Move catcher with phone touch
+// Mobile touch
 document.addEventListener("touchmove", (e) => {
-    catcher.style.left = (e.touches[0].clientX - 60) + "px";
+catcher.style.left = (e.touches[0].clientX - 60) + "px";
 });
 
-function createHeart() {
+function createHeart(){
 
-    const heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.classList.add("heart");
+let heart = document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
 
-    heart.style.left = Math.random() * (window.innerWidth - 60) + "px";
-    heart.style.top = "-60px";
+heart.style.left=Math.random()*window.innerWidth+"px";
+heart.style.top="-60px";
 
-    gameArea.appendChild(heart);
+gameArea.appendChild(heart);
 
-    let fallSpeed = 2 + Math.random(); // slower falling
+let fall=setInterval(()=>{
 
-    const fall = setInterval(() => {
+heart.style.top=heart.offsetTop+2+"px";
 
-        heart.style.top = heart.offsetTop + fallSpeed + "px";
+let h=heart.getBoundingClientRect();
+let c=catcher.getBoundingClientRect();
 
-        const heartRect = heart.getBoundingClientRect();
-        const catcherRect = catcher.getBoundingClientRect();
+if(h.bottom>=c.top && h.left<=c.right && h.right>=c.left){
 
-        // Improved collision detection
-        if (
-            heartRect.bottom >= catcherRect.top &&
-            heartRect.top <= catcherRect.bottom &&
-            heartRect.right >= catcherRect.left &&
-            heartRect.left <= catcherRect.right
-        ) {
-            score++;
-            scoreText.innerText = "Hearts Caught: " + score;
+score++;
+scoreText.innerText="Hearts Caught: "+score;
 
-            heart.remove();
-            clearInterval(fall);
+heart.remove();
+clearInterval(fall);
 
-            if (score >= targetScore) {
-                window.location.href = "wish.html";
-            }
-        }
-
-        // Remove if missed
-        if (heart.offsetTop > window.innerHeight) {
-            heart.remove();
-            clearInterval(fall);
-        }
-
-    }, 20);
+if(score>=targetScore){
+window.location.href="wish.html";
 }
 
-// Create hearts every second
-setInterval(createHeart, 1000);
+}
+
+if(heart.offsetTop>window.innerHeight){
+heart.remove();
+clearInterval(fall);
+}
+
+},20);
+}
+
+setInterval(createHeart,1000);
 
 </script>
+
+</body>
+</html>
