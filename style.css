@@ -1,34 +1,62 @@
+/* ===== GENERAL ===== */
+
 body{
 background: linear-gradient(to right,#ff9a9e,#fad0c4);
 font-family: cursive;
 margin:0;
+padding:20px;
+}
+
+/* Makes text scale automatically */
+h1{
+font-size: clamp(28px,5vw,60px);
+}
+
+h2{
+font-size: clamp(20px,4vw,40px);
+}
+
+p{
+font-size: clamp(16px,3vw,24px);
 }
 
 .center{
 text-align:center;
-padding-top:80px;
+padding-top:50px;
 }
 
+/* ===== BUTTONS ===== */
+
 button{
-padding:15px 30px;
-font-size:18px;
+padding:15px 35px;
+font-size: clamp(16px,2.5vw,22px);
 border:none;
-border-radius:20px;
+border-radius:30px;
 background:#ff4d6d;
 color:white;
 cursor:pointer;
+margin-top:20px;
+transition:0.3s;
 }
+
+button:hover{
+background:#ff1f4b;
+transform:scale(1.05);
+}
+
+/* ===== FLIPCARD SECTION ===== */
 
 .card-container{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:30px;
 flex-wrap:wrap;
+padding:20px;
 }
 
 .card{
-width:300px;
-height:180px;
+width:min(90vw,320px);
+height:200px;
 perspective:1000px;
 }
 
@@ -54,8 +82,10 @@ align-items:center;
 justify-content:center;
 flex-direction:row;
 gap:15px;
-padding:10px;
+padding:15px;
 background:white;
+font-size:clamp(16px,2.5vw,22px);
+text-align:center;
 }
 
 .card-back{
@@ -63,39 +93,63 @@ transform: rotateY(180deg);
 background:#ffd6e0;
 }
 
+/* GIF inside card */
 .sidegif{
-width:80px;
-height:80px;
+width:clamp(60px,15vw,90px);
+height:auto;
 }
 
+/* ===== LETTER PAGE ===== */
+
 .letter{
-width:60%;
+width:min(90vw,600px);
 margin:auto;
-font-size:20px;
+font-size: clamp(16px,3vw,24px);
 background:white;
 padding:20px;
 border-radius:20px;
+line-height:1.6;
 }
+
+/* ===== GAME ===== */
 
 #catcher{
 position:fixed;
 bottom:40px;
-font-size:80px;
+font-size:clamp(60px,15vw,100px);
 left:50%;
 transform:translateX(-50%);
 }
 
 .heart{
 position:fixed;
-font-size:50px;
+font-size:clamp(40px,10vw,70px);
 }
 
+/* ===== WISH PAGE IMAGE ===== */
+
 .roseimg{
-width:250px;
+width:clamp(180px,50vw,300px);
 margin-top:20px;
 }
 
+/* ===== THANK YOU PAGE ===== */
+
 .calligraphy{
 font-family:"Brush Script MT",cursive;
-font-size:40px;
+font-size: clamp(30px,6vw,70px);
+}
+
+/* ===== MOBILE EXTRA FIXES ===== */
+
+@media(max-width:600px){
+
+.card{
+height:220px;
+}
+
+button{
+width:80%;
+}
+
 }
