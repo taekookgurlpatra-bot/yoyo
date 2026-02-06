@@ -1,4 +1,5 @@
 <script>
+
 let score = 0;
 const targetScore = 15;
 
@@ -6,42 +7,46 @@ const gameArea = document.getElementById("gameArea");
 const catcher = document.getElementById("catcher");
 const scoreText = document.getElementById("score");
 
+// Move catcher with mouse
 document.addEventListener("mousemove", (e) => {
-    let x = e.clientX;
-    catcher.style.left = (x - 50) + "px";
+    catcher.style.left = (e.clientX - 60) + "px";
 });
 
-    document.addEventListener("touchmove", (e) => {
-    let x = e.touches[0].clientX;
-    catcher.style.left = (x - 50) + "px";
+// Move catcher with phone touch
+document.addEventListener("touchmove", (e) => {
+    catcher.style.left = (e.touches[0].clientX - 60) + "px";
 });
 
 function createHeart() {
+
     const heart = document.createElement("div");
+    heart.innerHTML = "❤️";
     heart.classList.add("heart");
-    
-    heart.style.left = Math.random() * (window.innerWidth - 30) + "px";
-    heart.style.top = "-30px";
-    
+
+    heart.style.left = Math.random() * (window.innerWidth - 60) + "px";
+    heart.style.top = "-60px";
+
     gameArea.appendChild(heart);
 
-    let fallSpeed = 3 + Math.random() * 2;
+    let fallSpeed = 2 + Math.random(); // slower falling
 
     const fall = setInterval(() => {
-        let heartTop = heart.offsetTop;
-        heart.style.top = heartTop + fallSpeed + "px";
 
-        // COLLISION DETECTION
+        heart.style.top = heart.offsetTop + fallSpeed + "px";
+
         const heartRect = heart.getBoundingClientRect();
         const catcherRect = catcher.getBoundingClientRect();
 
+        // Improved collision detection
         if (
             heartRect.bottom >= catcherRect.top &&
-            heartRect.left <= catcherRect.right &&
-            heartRect.right >= catcherRect.left
+            heartRect.top <= catcherRect.bottom &&
+            heartRect.right >= catcherRect.left &&
+            heartRect.left <= catcherRect.right
         ) {
             score++;
             scoreText.innerText = "Hearts Caught: " + score;
+
             heart.remove();
             clearInterval(fall);
 
@@ -50,8 +55,8 @@ function createHeart() {
             }
         }
 
-        // Remove heart if missed
-        if (heartTop > window.innerHeight) {
+        // Remove if missed
+        if (heart.offsetTop > window.innerHeight) {
             heart.remove();
             clearInterval(fall);
         }
@@ -59,7 +64,7 @@ function createHeart() {
     }, 20);
 }
 
-// Create hearts continuously
-setInterval(createHeart, 800);
-</script>
+// Create hearts every second
+setInterval(createHeart, 1000);
 
+</script>
