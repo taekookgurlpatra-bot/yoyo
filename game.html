@@ -1,43 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Heart Catch Game</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<h2>Catch 15 Hearts To Win 💖</h2>
-<h3 id="score">Score: 0</h3>
-
-<div id="game-area"></div>
-
 <script>
 let score = 0;
-let gameArea = document.getElementById("game-area");
+const targetScore = 15;
+
+const gameArea = document.getElementById("gameArea");
+const catcher = document.getElementById("catcher");
+const scoreText = document.getElementById("score");
+
+document.addEventListener("mousemove", (e) => {
+    let x = e.clientX;
+    catcher.style.left = (x - 50) + "px";
+});
 
 function createHeart() {
-let heart = document.createElement("div");
-heart.classList.add("heart");
-heart.style.left = Math.random() * window.innerWidth + "px";
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    
+    heart.style.left = Math.random() * (window.innerWidth - 30) + "px";
+    heart.style.top = "-30px";
+    
+    gameArea.appendChild(heart);
 
-heart.onclick = () => {
-score++;
-document.getElementById("score").innerText = "Score: " + score;
-heart.remove();
+    let fallSpeed = 3 + Math.random() * 2;
 
-if(score >= 15){
-window.location.href="wish.html";
+    const fall = setInterval(() => {
+        let heartTop = heart.offsetTop;
+        heart.style.top = heartTop + fallSpeed + "px";
+
+        // COLLISION DETECTION
+        const heartRect = heart.getBoundingClientRect();
+        const catcherRect = catcher.getBoundingClientRect();
+
+        if (
+            heartRect.bottom >= catcherRect.top &&
+            heartRect.left <= catcherRect.right &&
+            heartRect.right >= catcherRect.left
+        ) {
+            score++;
+            scoreText.innerText = "Hearts Caught: " + score;
+            heart.remove();
+            clearInterval(fall);
+
+            if (score >= targetScore) {
+                window.location.href = "wish.html";
+            }
+        }
+
+        // Remove heart if missed
+        if (heartTop > window.innerHeight) {
+            heart.remove();
+            clearInterval(fall);
+        }
+
+    }, 20);
 }
-};
 
-gameArea.appendChild(heart);
-
-setTimeout(() => heart.remove(), 3000);
-}
-
-setInterval(createHeart, 400);
+// Create hearts continuously
+setInterval(createHeart, 800);
 </script>
-
-</body>
-</html>
